@@ -25,7 +25,13 @@
                 <tr class="{{ $affiliate->active ? '' : 'table-danger' }}">
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $affiliate->name }}</td>
+                    <td>{{ $affiliate->cpf }}</td>
+                    <td>{{ $affiliate->birth_date }}</td>
                     <td>{{ $affiliate->email }}</td>
+                    <td>{{ $affiliate->phone }}</td>
+                    <td>{{ $affiliate->address }}</td>
+                    <td>{{ $affiliate->city }}</td>
+                    <td>{{ $affiliate->state }}</td>
                     <td>
                         <a href="{{ route('affiliates.edit', $affiliate->id) }}" class="btn btn-primary">Editar</a>
                         <form action="{{ route('affiliates.toggle-active', $affiliate->id) }}" method="POST" style="display: inline;">

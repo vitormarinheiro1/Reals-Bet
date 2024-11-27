@@ -14,15 +14,6 @@
 </head>
 
 <body>
-    <!-- <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="{{ route('users.index') }}">RealsBet</a>
-
-            @auth
-                <a href="{{ route('logout') }}">Sair</a>
-            @endauth
-        </div>
-    </nav> -->
     <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('users.index') }}">RealsBet</a>
@@ -33,7 +24,7 @@
                             <a class="nav-link" href="{{ route('users.index') }}">Usuários</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="#">Afiliados</a>
+                            <a class="nav-link" href="{{ route('affiliates.index') }}">Afiliados</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="#">Comissões</a>

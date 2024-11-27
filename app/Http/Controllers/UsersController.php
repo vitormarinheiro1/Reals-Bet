@@ -34,6 +34,19 @@ class UsersController extends Controller
 
     }
 
+    public function edit(User $user)
+    {
+        return view('users.edit')->with('user', $user);
+    }
+
+    public function update(Request $request, User $user)
+    {
+        $user->fill($request->all());
+        $user->save();
+
+        return to_route('users.index');
+    }
+
     public function destroy()
     {
         Auth::logout();

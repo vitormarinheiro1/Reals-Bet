@@ -21,14 +21,11 @@
                     <td>{{ $commission->value }}</td>
                     <td>{{ $commission->date }}</td>
                     <td>
-                        <span class="d-flex">
-                        <a href="{{ route('commissions.edit', $commission->id) }}" class="btn btn-primary">Editar</a>
                         <form action="{{ route('commissions.destroy', $commission->id)}}" method="post" class="ms-2">
                             @csrf
                             @method('DELETE')
                             <button type="submit" class="btn btn-danger">Excluir</button>
                         </form>
-                        </span>
                     </td>
                 </tr>
             @endforeach

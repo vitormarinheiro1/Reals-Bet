@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AffiliatesController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UsersController;
 use App\Http\Middleware\Authenticator;
@@ -10,6 +11,7 @@ Route::get('/', function () {
 })->middleware(Authenticator::class);
 
 Route::middleware(Authenticator::class)->group(function () {
+    Route::resource('/affiliates', AffiliatesController::class)->except('show');
     Route::resource('/users', UsersController::class)->except('show');
     Route::patch('/users/{user}/toggle-active', [UsersController::class, 'toggleActive'])
         ->name('users.toggle-active');

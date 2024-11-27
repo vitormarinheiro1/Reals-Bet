@@ -14,12 +14,35 @@
 </head>
 
 <body>
-    <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
+    <!-- <nav class="navbar bg-dark border-bottom border-body" data-bs-theme="dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="{{ route('users.index') }}">RealsBet</a>
 
             @auth
                 <a href="{{ route('logout') }}">Sair</a>
+            @endauth
+        </div>
+    </nav> -->
+    <nav class="navbar bg-dark navbar-expand-lg bg-body-tertiary" data-bs-theme="dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="{{ route('users.index') }}">RealsBet</a>
+            @auth
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('users.index') }}">Usuários</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Afiliados</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Comissões</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ route('logout') }}">Sair</a>
+                        </li>
+                    </ul>
+                </div>
             @endauth
         </div>
     </nav>

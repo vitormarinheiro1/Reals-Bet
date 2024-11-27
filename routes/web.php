@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AffiliatesController;
+use App\Http\Controllers\CommissionsController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UsersController;
 use App\Http\Middleware\Authenticator;
@@ -11,13 +12,15 @@ Route::get('/', function () {
 })->middleware(Authenticator::class);
 
 Route::middleware(Authenticator::class)->group(function () {
-    Route::resource('/affiliates', AffiliatesController::class)->except('show');
-    Route::patch('/affiliates/{affiliate}/toggle-active', [AffiliatesController::class, 'toggleActive'])
-    ->name('affiliates.toggle-active');
-    
     Route::resource('/users', UsersController::class)->except('show');
     Route::patch('/users/{user}/toggle-active', [UsersController::class, 'toggleActive'])
-        ->name('users.toggle-active');
+    ->name('users.toggle-active');
+    
+    Route::resource('/affiliates', AffiliatesController::class)->except('show');
+    Route::patch('/affiliates/{affiliate}/toggle-active', [AffiliatesController::class, 'toggleActive'])
+        ->name('affiliates.toggle-active');
+
+    Route::resource('/commissions', CommissionsController::class)->except('show');
 });
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');

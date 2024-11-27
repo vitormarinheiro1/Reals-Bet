@@ -16,13 +16,19 @@
         </thead>
         <tbody>
             @foreach ($users as $user)
-                <tr>
+                <tr class="{{ $user->active ? '' : 'table-danger' }}">
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $user->name }}</td>
                     <td>{{ $user->email }}</td>
                     <td>
-                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primay">Editar</a>
-                        <a href="#" class="btn btn-primay">Inativar</a>
+                        <a href="{{ route('users.edit', $user->id) }}" class="btn btn-primary">Editar</a>
+                        <form action="{{ route('users.toggle-active', $user->id) }}" method="POST" style="display: inline;">
+                            @csrf
+                            @method('PATCH')
+                            <button type="submit" class="btn btn-{{ $user->active ? 'danger' : 'success' }}">
+                                {{ $user->active ? 'Inativar' : 'Ativar' }}
+                            </button>
+                        </form>
                     </td>
                 </tr>
             @endforeach

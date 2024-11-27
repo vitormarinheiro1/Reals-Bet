@@ -11,6 +11,8 @@ Route::get('/', function () {
 
 Route::middleware(Authenticator::class)->group(function () {
     Route::resource('/users', UsersController::class)->except('show');
+    Route::patch('/users/{user}/toggle-active', [UsersController::class, 'toggleActive'])
+        ->name('users.toggle-active');
 });
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');

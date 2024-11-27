@@ -53,4 +53,13 @@ class UsersController extends Controller
 
         return to_route('login');
     }
+
+    public function toggleActive(User $user)
+    {
+        $user->active = !$user->active;
+        $user->save();
+
+        return back()->with('success', 'Status do usuário atualizado com sucesso!');
+    }
+
 }

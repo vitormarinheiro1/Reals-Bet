@@ -11,4 +11,10 @@ class Commission extends Model
         "value",
         "date"
     ];
+
+    
+    public function affiliate()
+    {
+        return $this->belongsTo(Affiliate::class, 'affiliate_id');
+    }
 }

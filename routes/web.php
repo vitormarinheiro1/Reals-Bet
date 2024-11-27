@@ -14,6 +14,7 @@ Route::middleware(Authenticator::class)->group(function () {
     Route::resource('/affiliates', AffiliatesController::class)->except('show');
     Route::patch('/affiliates/{affiliate}/toggle-active', [AffiliatesController::class, 'toggleActive'])
     ->name('affiliates.toggle-active');
+    
     Route::resource('/users', UsersController::class)->except('show');
     Route::patch('/users/{user}/toggle-active', [UsersController::class, 'toggleActive'])
         ->name('users.toggle-active');

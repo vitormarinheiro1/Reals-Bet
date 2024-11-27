@@ -27,7 +27,6 @@ class AffiliatesController extends Controller
         Affiliate::create($data);
 
         return to_route('affiliates.index');
-
     }
 
     public function edit(Affiliate $affiliate)

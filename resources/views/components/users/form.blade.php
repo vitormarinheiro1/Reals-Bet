@@ -14,5 +14,5 @@
     <input class="form-control" type="password" id="password" name="password" @isset($password)value="{{ $password }}"@endisset>
     </div>
 
-    <button type="submit" class="btn btn-primary">Alterar</button>
+    <button type="submit" class="btn btn-primary">Enviar dados</button>
 </form>

@@ -24,11 +24,8 @@ class AffiliatesController extends Controller
     public function store(Request $request)
     {
         $data = $request->except(['_token']);
-        $data['password'] = Hash::make($data['password']);
 
-        $affiliate = Affiliate::create($data);
-
-        Auth::login($affiliate);
+        Affiliate::create($data);
 
         return to_route('affiliates.index');
 

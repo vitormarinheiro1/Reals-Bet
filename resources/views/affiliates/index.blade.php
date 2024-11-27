@@ -4,7 +4,6 @@
         Cadastrar Afiliado
     </a>
 
-
     <table class="table table-hover mt-4">
         <thead>
             <tr>

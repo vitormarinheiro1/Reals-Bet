@@ -14,6 +14,6 @@ class Affiliate extends Model
         "phone",
         "address",
         "city",
-        "active",
+        "state"
     ];
 }

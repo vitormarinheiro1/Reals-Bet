@@ -9,6 +9,9 @@
 
     <label class="form-label" for="email">E-mail:</label>
     <input class="form-control" type="text" id="email" name="email" @isset($email)value="{{ $email }}"@endisset>
+
+    <label class="form-label" for="password">Senha:</label>
+    <input class="form-control" type="password" id="password" name="password" @isset($password)value="{{ $password }}"@endisset>
     </div>
 
     <button type="submit" class="btn btn-primary">Alterar</button>

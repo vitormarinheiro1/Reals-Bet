@@ -25,7 +25,7 @@
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $affiliate->name }}</td>
                     <td>{{ $affiliate->cpf }}</td>
-                    <td>{{ $affiliate->birth_date }}</td>
+                    <td>{{ (new DateTimeImmutable($affiliate->birth_date))->format('d/m/Y') }}</td>
                     <td>{{ $affiliate->email }}</td>
                     <td>{{ $affiliate->phone }}</td>
                     <td>{{ $affiliate->address }}</td>

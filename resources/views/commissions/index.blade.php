@@ -19,7 +19,7 @@
                     <th scope="row">{{ $loop->iteration }}</th>
                     <td>{{ $commission->affiliate->name }}</td>
                     <td>{{ $commission->value }}</td>
-                    <td>{{ $commission->date }}</td>
+                    <td>{{ (new DateTimeImmutable($commission->date))->format('d/m/Y') }}</td>
                     <td>
                         <form action="{{ route('commissions.destroy', $commission->id)}}" method="post" class="ms-2">
                             @csrf

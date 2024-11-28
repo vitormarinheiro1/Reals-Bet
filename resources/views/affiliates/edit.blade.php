@@ -1,4 +1,4 @@
-<x-layout title="Editar Afiliado">
+<x-layout title="Editar Afiliado '{{ $affiliate->name }}'">
     <x-affiliates.form
     :action="route('affiliates.update',
     $affiliate->id)"

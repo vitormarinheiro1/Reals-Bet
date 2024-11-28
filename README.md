@@ -1,66 +1,64 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
-
 <p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
+  <img src="./public/images/affiliates.png" alt="RealsBet">
 </p>
 
-## About Laravel
+# RealsBet - PHP Laravel Pleno
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Requisitos
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+# Usuários
+•	Deve existir uma tela para o Cadastro do Usuário
+•	Deve existir uma tela para a listagem dos Usuários Cadastrados
+•	Deve permitir a edição do Cadastro de Usuário
+•	Deve permitir a inativar um Usuário Cadastrado
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# Afiliados
+•	Deve existir uma tela para o Cadastro do Afiliado
+•	Deve existir uma tela para a listagem dos Afiliados Cadastrados
+•	Deve permitir a edição do Cadastro de Afiliado
+•	Deve permitir a inativar um Afiliado Cadastrado
 
-## Learning Laravel
+# Comissão de Afiliado
+•	Deve existir uma tela para o Adicionar uma comissão a um afiliado
+•	Deve permitir excluir uma Comissão de Afiliado
+•	Deve existir uma tela para Consulta de Comissão do Afiliado
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+# Cadastro de Usuários
+•	E-mail
+•	Senha
+•	Nome
 
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
+# Cadastro de Afiliados
+•	Nome
+•	CPF
+•	Data Nascimento
+•	Email
+•	Telefone
+•	Endereço
+•	Cidade (Campo de Seleção)
+•	Estado (Campo de Seleção)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+# Comissão
+•	Afiliado
+•	Valor (Pode ser positivo ou negativo)
+•	Data
 
-## Laravel Sponsors
+# Observações
+•	Ao selecionar o estado, deverá aparecer as cidades do estado selecionado.
+•	O Valor da comissão informado pode ser tanto positivo como nagativo, mantendo o sinal)
+•	Pode ser usado para o Front qualquer framework de CSS ao seu desejo (Bootstrap, Tailwindcss,Bulma, Material, etc..)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
 
-### Premium Partners
+## Tech Stack
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[WebReinvent](https://webreinvent.com/)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Jump24](https://jump24.co.uk)**
-- **[Redberry](https://redberry.international/laravel/)**
-- **[Active Logic](https://activelogic.com)**
-- **[byte5](https://byte5.de)**
-- **[OP.GG](https://op.gg)**
+<!--- # "Verify icons availability here https://github.com/tandpfun/skill-icons" -->
 
-## Contributing
+[![My Skills](https://skillicons.dev/icons?i=php,laravel,mysql,bootstrap)](https://skillicons.dev)
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+## Getting Started
 
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+1. **Install Dependencies**: `npm install or yarn`
+2. **Create containers**: `docker-compose up -d`
+3. **Environment variables**: Copy `.env.example` to a new `.env.local`
+4. **Database Setup**: `npx prisma migrate dev --name init`
+5. **Start Developing**: `npm run start:dev (api) & npm run dev (frontend)`

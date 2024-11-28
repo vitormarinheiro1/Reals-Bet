@@ -20,7 +20,7 @@ Route::middleware(Authenticator::class)->group(function () {
     Route::patch('/affiliates/{affiliate}/toggle-active', [AffiliatesController::class, 'toggleActive'])
         ->name('affiliates.toggle-active');
 
-    Route::resource('/commissions', CommissionsController::class)->except('show');
+    Route::resource('/commissions', CommissionsController::class)->except('show, edit');
 });
 
 Route::get('/login', [LoginController::class, 'index'])->name('login');

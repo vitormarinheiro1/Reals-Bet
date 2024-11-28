@@ -33,6 +33,16 @@ class CommissionsController extends Controller
 
     public function store(Request $request)
     {
+        $request->validate([
+            'value' => 'required|numeric|digits_between:1,8|min:1',
+        ], [
+            'value.required' => 'O campo valor é obrigatório.',
+            'value.numeric' => 'O campo valor deve ser um número.',
+            'value.digits_between' => 'O campo valor deve ter entre 1 e 8 dígitos.',
+            'value.min' => 'O campo valor deve ser maior que 0.',
+        ]);
+        
+
         $commission = Commission::create($request->all());
 
         return to_route('commissions.index')->with('mensagem.sucesso', "Comissão para '{$commission->affiliate->name}' adicionada com sucesso");

@@ -26,13 +26,16 @@
                 <div class="collapse navbar-collapse" id="navbarNav">
                     <ul class="navbar-nav">
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('users.index') }}">Usuários</a>
+                            <a class="nav-link {{ request()->is('users*') ? 'text-white' : '' }}"
+                                href="{{ route('users.index') }}">Usuários</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('affiliates.index') }}">Afiliados</a>
+                            <a class="nav-link {{ request()->is('affiliates*') ? 'text-white' : '' }}"
+                                href="{{ route('affiliates.index') }}">Afiliados</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="{{ route('commissions.index') }}">Comissões</a>
+                            <a class="nav-link {{ request()->is('commissions*') ? 'text-white' : '' }}"
+                                href="{{ route('commissions.index') }}">Comissões</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{{ route('logout') }}">Sair</a>
@@ -43,9 +46,18 @@
         </div>
     </nav>
 
-
     <div class="container">
         <h1 class="mt-3">{{ $title }}</h1>
+
+        @if ($errors->any())
+            <div class="alert alert-danger">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
 
         {{ $slot }}
     </div>

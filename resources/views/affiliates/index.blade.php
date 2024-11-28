@@ -3,7 +3,7 @@
     <a href="{{ route('affiliates.create') }}" class="btn btn-primary mt-4">
         Cadastrar Afiliado
     </a>
-    
+
     <div class="table-responsive">
         <table class="table table-hover table-responsive">
             <thead>
@@ -28,7 +28,7 @@
                         <td>{{ preg_replace('/(\d{3})(\d{3})(\d{3})(\d{2})/', '$1.$2.$3-$4', $affiliate->cpf) }}</td>
                         <td>{{ (new DateTimeImmutable($affiliate->birth_date))->format('d/m/Y') }}</td>
                         <td>{{ $affiliate->email }}</td>
-                        <td>{{ $affiliate->phone }}</td>
+                        <td>{{ preg_replace('/(\d{2})(\d{5})(\d{4})/', '($1) $2-$3', $affiliate->phone) }}</td>
                         <td>{{ $affiliate->address }}</td>
                         <td>{{ $affiliate->city }}</td>
                         <td>{{ $affiliate->state }}</td>

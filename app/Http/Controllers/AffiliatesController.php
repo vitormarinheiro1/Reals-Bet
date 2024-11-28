@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\AffiliatesFormRequest;
 use App\Models\Affiliate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
@@ -20,7 +21,7 @@ class AffiliatesController extends Controller
         return view('affiliates.create');
     }
 
-    public function store(Request $request)
+    public function store(AffiliatesFormRequest $request)
     {
         $data = $request->except(['_token']);
 
@@ -34,7 +35,7 @@ class AffiliatesController extends Controller
         return view('affiliates.edit')->with('affiliate', $affiliate);
     }
 
-    public function update(Request $request, Affiliate $affiliate)
+    public function update(AffiliatesFormRequest $request, Affiliate $affiliate)
     {
         $affiliate->fill($request->all());
         $affiliate->save();

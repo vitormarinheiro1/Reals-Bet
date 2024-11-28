@@ -57,8 +57,13 @@
 
 ## Getting Started
 
-1. **Install Dependencies**: `npm install or yarn`
-2. **Create containers**: `docker-compose up -d`
-3. **Environment variables**: Copy `.env.example` to a new `.env.local`
-4. **Database Setup**: `npx prisma migrate dev --name init`
-5. **Start Developing**: `npm run start:dev (api) & npm run dev (frontend)`
+1. **Clone o repositório**: `git clone https://github.com/vitormarinheiro1/RealsBet.git`
+2. **Acesse a pasta do projeto**: `cd RealsBet`
+3. **Instale as dependências**: `composer install`
+4. **Configure as variáveis de ambiente**:  
+   - Renomeie o arquivo `.env.example` para `.env`.  
+   - Atualize o arquivo `.env` com suas credenciais do banco de dados (`DB_USERNAME` e `DB_PASSWORD`).
+5. **Gere a chave da aplicação**: `php artisan key:generate`
+6. **Configure o banco de dados**: `php artisan migrate`
+7. **Popule o banco de dados (opcional)**: `php artisan db:seed`
+8. **Inicie o servidor de desenvolvimento**: `php artisan serve`

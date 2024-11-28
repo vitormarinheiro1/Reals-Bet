@@ -31,7 +31,7 @@
                     <tr class="{{ $affiliate->active ? '' : 'table-danger' }}">
                         <th scope="row">{{ $loop->iteration }}</th>
                         <td>{{ $affiliate->name }}</td>
-                        <td>{{ preg_replace('/(\d{3})(\d{3})(\d{3})(\d{2})/', '$1.$2.$3-$4', $affiliate->cpf) }}</td>
+                        <td>{{ preg_replace('/(\d{3})(\d{3})(\d{3})(\d{2})/', '$1.$2.$3-$4', subject: $affiliate->cpf) }}</td>
                         <td>{{ (new DateTimeImmutable($affiliate->birth_date))->format('d/m/Y') }}</td>
                         <td>{{ $affiliate->email }}</td>
                         <td>{{ preg_replace('/(\d{2})(\d{5})(\d{4})/', '($1) $2-$3', $affiliate->phone) }}</td>

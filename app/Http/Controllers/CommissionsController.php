@@ -9,7 +9,11 @@ class CommissionsController extends Controller
 {
     public function index()
     {
-        $commissions = Commission::with('affiliate')->get();
+        $commissions = Commission::with('affiliate')
+            ->whereHas('affiliate', function ($query) {
+                $query->where('active', true);
+            })
+            ->get();
 
         return view('commissions.index', compact('commissions'));
     }
@@ -18,8 +22,13 @@ class CommissionsController extends Controller
     {
         $commissions = Commission::with('affiliate')->get();
 
-        return view('commissions.create', compact('commissions'));
+        $activeAffiliates = $commissions->filter(function ($commission) {
+            return $commission->affiliate && $commission->affiliate->active;
+        })->pluck('affiliate')->unique('id')->values();
+    
+        return view('commissions.create', compact('activeAffiliates'));
     }
+    
 
     public function store(Request $request)
     {

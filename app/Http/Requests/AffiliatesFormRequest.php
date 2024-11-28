@@ -23,9 +23,9 @@ class AffiliatesFormRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'cpf' => ['required', 'min:11', 'max:11'],
+            'cpf' => ['required', 'min:11', 'max:11', 'unique:users,email'],
             'birth_date' => 'required',
-            'email' => 'required',
+            'email' => ['required', 'unique:users,email'],
             'phone' => ['required', 'min:11', 'max:11'],
             'address' => 'required',
             'state' => 'required',
@@ -38,10 +38,12 @@ class AffiliatesFormRequest extends FormRequest
         return [
             'name.required' => 'O campo nome é obrigatório.',
             'cpf.required' => 'O campo CPF é obrigatório.',
+            'cpf.*' => 'Já existe um afiliado com esse CPF.',
             'cpf.min' => 'O campo CPF precisa ter pelo menos :min caracteres.',
             'cpf.max' => 'O campo CPF precisa ter no máximo :max caracteres.',
             'birth_date.required' => 'O campo data nascimento é obrigatório.',
             'email.required' => 'O campo e-mail é obrigatório.',
+            'email.*' => 'Já existe um afiliado com esse e-mail.',
             'phone.required' => 'O campo telefone é obrigatório.',
             'phone.min' => 'O campo telefone precisa ter pelo menos :min caracteres.',
             'phone.max' => 'O campo telefone precisa ter no máximo :max caracteres.',

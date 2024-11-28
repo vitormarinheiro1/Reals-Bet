@@ -1,8 +1,14 @@
 <x-layout title="Listagem de Afiliados Cadastrados">
 
-    <a href="{{ route('affiliates.create') }}" class="btn btn-primary mt-4">
+    <a href="{{ route('affiliates.create') }}" class="btn btn-primary mt-4 mb-2">
         Cadastrar Afiliado
     </a>
+
+    @isset($mensagemSucesso)
+        <div class="alert alert-success">
+            {{ $mensagemSucesso }}
+        </div>
+    @endisset
 
     <div class="table-responsive">
         <table class="table table-hover table-responsive">

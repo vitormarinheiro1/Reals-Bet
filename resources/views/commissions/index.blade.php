@@ -1,7 +1,13 @@
 <x-layout title="Consulta de Comissão de Afiliados">
-    <a href="{{ route('commissions.create') }}" class="btn btn-primary mt-4">
+    <a href="{{ route('commissions.create') }}" class="btn btn-primary mt-4 mb-2">
         Adicionar Comissão
     </a>
+
+    @isset($mensagemSucesso)
+    <div class="alert alert-success">
+        {{ $mensagemSucesso }}
+    </div>
+    @endisset
 
     <div class="table-responsive">
         <table class="table table-hover mt-4">

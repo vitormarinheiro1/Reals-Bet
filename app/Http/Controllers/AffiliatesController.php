@@ -9,11 +9,13 @@ use Illuminate\Support\Facades\Auth;
 
 class AffiliatesController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $affiliates = Affiliate::all();
+        $mensagemSucesso = $request->session()->get('mensagem.sucesso');
+        $request->session()->forget('mensagem.sucesso');
 
-        return view('affiliates.index')->with('affiliates', $affiliates);
+        return view('affiliates.index')->with('affiliates', $affiliates)->with('mensagemSucesso', $mensagemSucesso);
     }
 
     public function create()
@@ -25,9 +27,9 @@ class AffiliatesController extends Controller
     {
         $data = $request->except(['_token']);
 
-        Affiliate::create($data);
+        $affiliate = Affiliate::create($data);
 
-        return to_route('affiliates.index');
+        return to_route('affiliates.index')->with('mensagem.sucesso', "Afiliado '{$affiliate->name}' adicionado com sucesso");
     }
 
     public function edit(Affiliate $affiliate)
@@ -40,7 +42,7 @@ class AffiliatesController extends Controller
         $affiliate->fill($request->all());
         $affiliate->save();
 
-        return to_route('affiliates.index');
+        return to_route('affiliates.index')->with('mensagem.sucesso', "Afiliado '$affiliate->name' atualizado com sucesso!");
     }
 
     public function destroy()

@@ -1,8 +1,14 @@
 <x-layout title="Listagem de Usuários Cadastrados">
 
-    <a href="{{ route('users.create') }}" class="btn btn-primary mt-4">
+    <a href="{{ route('users.create') }}" class="btn btn-primary mt-4 mb-2">
         Cadastrar usuário
     </a>
+
+    @isset($mensagemSucesso)
+    <div class="alert alert-success">
+        {{ $mensagemSucesso }}
+    </div>
+    @endisset
 
     <div class="table-responsive">
         <table class="table table-hover mt-4">

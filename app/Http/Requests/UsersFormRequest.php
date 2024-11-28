@@ -23,7 +23,7 @@ class UsersFormRequest extends FormRequest
     {
         return [
             'name' => 'required',
-            'email' => ['required', 'unique:users,email'],
+            'email' => ['required'],
             'password' => ['required', 'min:6'],
         ];
     }
@@ -33,7 +33,6 @@ class UsersFormRequest extends FormRequest
         return [
             'name.required' => 'O campo nome é obrigatório.',
             'email.required' => 'O campo e-mail é obrigatório.',
-            'email.*' => 'Já existe um usuário com esse e-mail.',
             'password.required' => 'O campo senha é obrigatório.',
             'password.min' => 'O campo senha precisa de pelo menos :min caracteres.',
         ];

@@ -10,11 +10,13 @@ use Illuminate\Support\Facades\Hash;
 
 class UsersController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
         $users = User::all();
+        $mensagemSucesso = $request->session()->get('mensagem.sucesso');
+        $request->session()->forget('mensagem.sucesso');
 
-        return view('users.index')->with('users', $users);
+        return view('users.index')->with('users', $users)->with('affiliates', $users)->with('mensagemSucesso', $mensagemSucesso);
     }
 
     public function create()
@@ -31,7 +33,7 @@ class UsersController extends Controller
 
         Auth::login($user);
 
-        return to_route('users.index');
+        return to_route('users.index')->with('mensagem.sucesso', "Usuário '{$user->name}' adicionado com sucesso");
 
     }
 
@@ -45,7 +47,7 @@ class UsersController extends Controller
         $user->fill($request->all());
         $user->save();
 
-        return to_route('users.index');
+        return to_route('users.index')->with('mensagem.sucesso', "Usuário '$user->name' atualizado com sucesso!");
     }
 
     public function destroy()
